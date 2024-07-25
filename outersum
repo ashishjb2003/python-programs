@@ -1,0 +1,39 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'OUTER_SUM' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. 2D_INTEGER_ARRAY A
+#
+
+def OUTER_SUM(n, A):
+    sum1=0
+    for i in range(n):
+        for j in range(n):
+            if(i==0 or j==0 or i==n-1 or j==n-1):
+                sum1=sum1+A[i][j]
+    return sum1
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    A = []
+
+    for _ in range(n):
+        A.append(list(map(int, input().rstrip().split())))
+
+    o_sum = OUTER_SUM(n, A)
+
+    fptr.write(str(o_sum) + '\n')
+
+    fptr.close()
