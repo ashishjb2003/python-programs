@@ -1,0 +1,41 @@
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'DIAGONAL_SUM' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. 2D_INTEGER_ARRAY A
+#
+
+def DIAGONAL_SUM(n, A):
+    ld_sum=0;rd_sum=0
+    for i in range(n):
+        for j in range(n):
+            if(i==j):
+                ld_sum=ld_sum+A[i][j]
+            if(i+j==n-1):
+                rd_sum=rd_sum+A[i][j]
+    return ld_sum,rd_sum
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    A = []
+
+    for _ in range(n):
+        A.append(list(map(int, input().rstrip().split())))
+
+    slrd = DIAGONAL_SUM(n, A)
+
+    fptr.write(' '.join(map(str, slrd)))
+    fptr.write('\n')
+
+    fptr.close()
