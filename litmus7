@@ -1,0 +1,10 @@
+rcl=[int(x) for x in input().split()]
+rows=rcl[0];cols=rcl[1];cnt=0
+M=[[int(x)for x in input().split()]for i in range(rows)]
+for i in range(rows):
+    for j in range(cols):
+        for k in range(j+1,cols):
+            if(i%2==0 and M[i][j]>M[i][k])or (i%2==1 and M[i][j]<M[i][k]):
+                cnt=cnt+1
+print(cnt)
+        
