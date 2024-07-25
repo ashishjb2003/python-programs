@@ -1,0 +1,38 @@
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'EVERY_NUM_DIGITS_SUM' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY num_arr as parameter.
+#
+
+def EVERY_NUM_DIGITS_SUM(num_arr):
+    
+    sum1=[]
+    for i in range(len(num_arr)):
+        s=0
+        while(num_arr[i]>0):
+            temp=num_arr[i]%10
+            s=s+temp
+            num_arr[i]=num_arr[i]//10
+        sum1.append(s)
+    return sum1
+            
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    L_count = int(input().strip())
+
+    L = list(map(int, input().rstrip().split()))
+
+    arr_sol = EVERY_NUM_DIGITS_SUM(L)
+
+    fptr.write(' '.join(map(str, arr_sol)))
+    fptr.write('\n')
+
+    fptr.close()
