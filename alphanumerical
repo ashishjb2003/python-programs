@@ -1,0 +1,31 @@
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'NON_ALPHA_NUM_WHITE_COUNT' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING inp_str as parameter.
+#
+
+def NON_ALPHA_NUM_WHITE_COUNT(inp_str):
+    cnt=0
+    for ele in inp_str:
+        if not ele.isalnum() and not ele.isspace():
+            cnt=cnt+1
+    return cnt
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    inp_str = input()
+
+    count = NON_ALPHA_NUM_WHITE_COUNT(inp_str)
+
+    fptr.write(str(count) + '\n')
+
+    fptr.close()
